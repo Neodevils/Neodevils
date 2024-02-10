@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta content="Neodevil" property="og:title" />
+        <meta
+            content="This is my personal website."
+            property="og:description"
+        />
+        <meta content="https://neoaichan.me" property="og:url" />
+        <meta content="./public/assets/logo.png" property="og:image" />
+        <meta content="#ffae74" data-react-helmet="true" name="theme-color" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+        <meta name="theme-color" content="#ffffff" />
+
+        <title>Neo</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <div class="screen">
+            <header>
+                <img class="logo" src="public/assets/logo.png" />
+                <div class="dynamic-welcome">
+                    <span>Hoşgeldiniz!</span>
+                    <img src="public/assets/wave.svg" />
+                </div>
+                <a class="contact" href="mailto:neoaichan@hotmail.com"
+                    >Bağlan!</a
+                >
+            </header>
+
+            <main>
+                <section class="hero-section">
+                    <div class="date-and-user">
+                        <span id="current-time">00:00</span>
+                        <div class="memoji-and-circle">
+                            <img
+                                class="neomoji"
+                                src="public/assets/neomoji.png"
+                                alt=""
+                            />
+                            <div class="radial-gradient"></div>
+                            <div class="radial-gradient"></div>
+                            <div class="radial-gradient"></div>
+                            <div class="radial-gradient"></div>
+                        </div>
+                        <div class="date-container">
+                            <div class="day-and-month">
+                                <span class="day" id="current-day">Pzt</span>
+                                <span class="month" id="current-month"
+                                    >Ock</span
+                                >
+                            </div>
+                            <span class="date" id="current-date">1</span>
+                        </div>
+                    </div>
+                    <div class="name-and-work">
+                        <span class="name">İbrahim Güneş</span>
+                        <span class="work">Haritacı</span>
+                    </div>
+                </section>
+                <section class="work-and-map">
+                    <div class="work-container">
+                        <div class="works">
+                            <h1>işler</h1>
+                            <span>0</span>
+                        </div>
+                        <div class="working-on">
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="project-status"
+                                    value="not-working"
+                                    disabled
+                                />
+                                Şu anda hiçbir proje üzerinde çalışmıyorum.
+                            </label>
+                        </div>
+                    </div>
+                    <div class="map-container">
+                        <img class="map" src="public/assets/map.png" alt="" />
+                        <img src="public/assets/neomoji.png" alt="" />
+                    </div>
+                </section>
+                <section class="about-me">
+                    <h2>
+                        Merhaba, ben <span class="highlight">İbrahim.</span>
+                    </h2>
+                    <p>
+                        Merhaba, ben İbrahim. 22 yaşımdayım. Türkiye'nin
+                        İstanbul şehrinde yaşıyorum.
+                    </p>
+
+                    <div class="project">
+                        <h3>Projelerim</h3>
+                        <p>Oluşturduğum melodiler</p>
+                        <div class="album-container">
+                            <a
+                                href="https://www.youtube.com/watch?v=hfsKgKstzCE"
+                                target="_blank"
+                            >
+                                <div class="album-item">
+                                    <img
+                                        src="public/assets/Childhood.jpg"
+                                        alt="Childhood album"
+                                    />
+                                    <div class="album-info">
+                                        <h4>Childhood</h4>
+                                        <p>Bu benim “Childhood” albümüm.</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a
+                                href="https://www.youtube.com/shorts/JIF_CkXsd9o"
+                                target="_blank"
+                            >
+                                <div class="album-item">
+                                    <img
+                                        src="public/assets/Eternal Serenity.jpg"
+                                        alt="Eternal Serenity Album"
+                                    />
+                                    <div class="album-info">
+                                        <h4>Eternal Serenity</h4>
+                                        <p>
+                                            Bu benim “Eternal Serenity” albümüm.
+                                            Alarm için kullanılabilir.
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a
+                                href="https://www.youtube.com/watch?v=0N2XQvSGuKw"
+                                target="_blank"
+                            >
+                                <div class="album-item">
+                                    <img
+                                        src="public/assets/Longway.jpg"
+                                        alt="Longway Album"
+                                    />
+                                    <div class="album-info">
+                                        <h4>Longway</h4>
+                                        <p>“Longway” albümüm.</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a
+                                href="https://www.youtube.com/watch?v=xofewfCw-7E"
+                                target="_blank"
+                            >
+                                <div class="album-item">
+                                    <img
+                                        src="public/assets/Penguin Melody.jpg"
+                                        alt="Penguin Melody Album"
+                                    />
+                                    <div class="album-info">
+                                        <h4>Penguin Melody</h4>
+                                        <p>
+                                            “Penguin Melody” penguen kız
+                                            arkadaşım için hazırlanmış bir
+                                            albumdür.
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <p>Oluşturduğum çizimlerden birkaç tanesi</p>
+                        <div class="art-container">
+                            <img
+                                class="art"
+                                src="public/assets/arts/Zero_Two__Hiro.jpg"
+                                alt="Zero Two and Hiro"
+                            />
+                            <img
+                                class="art"
+                                src="public/assets/arts/Scarlet_Azure_Love_Time.jpg"
+                                alt="Scarlet Blaze and Azure Fang Love Time"
+                            />
+                            <img
+                                class="art"
+                                src="public/assets/arts/Scarlet_looking_at_sky.jpg"
+                                alt="Scarlet Blaze Looking at the sky"
+                            />
+                            <img
+                                class="art"
+                                src="public/assets/arts/Demon_Human.jpg"
+                                alt="Demon & Human"
+                            />
+                            <img
+                                class="art"
+                                src="public/assets/arts/Granger_Realistic_Draw.jpg"
+                                alt="Granger realistic draw"
+                            />
+
+                            <img
+                                class="art"
+                                src="public/assets/arts/Levi.jpg"
+                                alt=""
+                            />
+                            <img
+                                class="art"
+                                src="public/assets/arts/Sasuke.jpg"
+                                alt=""
+                            />
+                            <img
+                                class="art"
+                                src="public/assets/arts/Otasaka_Yu.jpg"
+                                alt=""
+                            />
+                            <img
+                                class="art"
+                                src="public/assets/arts/Ben_2.jpg"
+                                alt=""
+                            />
+                            <img
+                                class="art"
+                                src="public/assets/arts/Ben_1.jpg"
+                                alt=""
+                            />
+                        </div>
+                    </div>
+                </section>
+            </main>
+            <footer>
+                <p>Hepsi bu kadar.</p>
+                <br />
+                <p>
+                    Oluşturduğum
+                    <a class="highlight" href="https://minesa.live">şirkete</a>
+                    de bakmak ister misin?
+                </p>
+            </footer>
+        </div>
+    </body>
+</html>
