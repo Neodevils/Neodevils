@@ -47,7 +47,6 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    transition: var(--transition);
 }
 
 body {
@@ -112,6 +111,14 @@ header {
         height: 150px;
         border-radius: 40px;
     }
+}
+
+.circle {
+    border-radius: 1000px;
+    border: 5px solid rgb(226, 59, 38);
+    width: 5px;
+    height: 5px;
+    padding: 0px;
 }
 
 main {
