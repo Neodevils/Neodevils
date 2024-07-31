@@ -1,24 +1,58 @@
-const CURRENT_TIME = document.getElementById("current-time");
-const CURRENT_DAY = document.getElementById("current-day");
-const CURRENT_MONTH = document.getElementById("current-month");
-const CURRENT_DATE = document.getElementById("current-date");
+window.addEventListener("scroll", function () {
+    const body = document.body;
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const maxScroll =
+        document.documentElement.scrollHeight - window.innerHeight;
+    const scrollFraction = scrollTop / maxScroll;
 
-function refreshDateTime() {
-    let now = new Date();
+    const minSize = 100;
+    const maxSize = 300;
 
-    let h = now.getHours().toString().padStart(2, "0"),
-        m = now.getMinutes().toString().padStart(2, "0"),
-        timeString = `${h}:${m}`;
-    CURRENT_TIME.innerHTML = timeString;
+    const viewportWidth = window.innerWidth;
+    const maxViewportWidth = 1420;
+    const viewportFraction = viewportWidth / maxViewportWidth;
+    const adjustedMaxSize = maxSize * viewportFraction;
+    const backgroundSize =
+        minSize + (adjustedMaxSize - minSize) * scrollFraction;
 
-    let day = now.toLocaleString("default", { weekday: "short" });
-    CURRENT_DAY.innerHTML = `${day}`;
+    body.style.backgroundSize = `${backgroundSize}%`;
 
-    let month = now.toLocaleString("default", { month: "short" });
-    CURRENT_MONTH.innerHTML = `${month}`;
+    const sections = document.querySelectorAll("section.neo");
 
-    let date = now.getDate().toString();
-    CURRENT_DATE.innerHTML = `${date}`;
-}
+    sections.forEach((section) => {
+        const minOpacity = 1;
+        const maxOpacity = 0.6;
+        const opacity = minOpacity + (maxOpacity - minOpacity) * scrollFraction;
+        section.style.opacity = opacity;
 
-setInterval(refreshDateTime, 1000);
+        const titles = section.querySelectorAll(".title");
+        const h1 = section.querySelector("h1");
+
+        const baseFontSize = 1.5;
+        const scrollFontSizeFactor = 1.2;
+        const fontSize = baseFontSize + scrollFraction * scrollFontSizeFactor;
+
+        h1.style.fontSize = `${fontSize}rem`;
+        titles.forEach((title) => {
+            title.style.fontSize = `${fontSize * 0.8}rem`;
+        });
+    });
+
+    const information = document.querySelector("div.information");
+    const img = information.querySelector("body > img");
+
+    const minImageSize = 50;
+    const maxImageSize = 300;
+
+    const imageSize =
+        minImageSize + (maxImageSize - minImageSize) * scrollFraction;
+
+    img.style.width = `${imageSize}px`;
+});
+
+const images = document.querySelector(".images");
+
+images.scrollIntoView({
+    behavior: "smooth",
+    inline: "start",
+});
