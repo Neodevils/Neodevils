@@ -1,15 +1,15 @@
 @import url("https://fonts.cdnfonts.com/css/gloock-2");
 @import url("https://fonts.cdnfonts.com/css/helvetica-neue-55");
-@import url("https://fonts.cdnfonts.com/css/arial-mt");
+/* @import url("https://fonts.cdnfonts.com/css/arial-mt"); */
 
 :root {
     --dimension-em: 1em;
     --dimension-px: 1px;
     --red-color: #ff6868;
-    --orange-color: #ffae74;
+    /* --orange-color: #ffae74;
     --purple-color: #a962dc;
     --blue-color: #9cd0ff;
-    --green-color: #548f73;
+    --green-color: #548f73; */
     --dark-background-color: #1b1b1b;
     --light-background-color: #ebebeb;
     --dark-text-color: #333;
@@ -26,31 +26,28 @@
 }
 
 ::-webkit-scrollbar {
-    width: 0.25em;
+    width: 0.5em;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--dark-background-color);
+    background: rgb(226, 59, 38);
 }
 
 ::-webkit-scrollbar-thumb {
     border-radius: 15px;
-    background: linear-gradient(
-        45deg,
-        var(--dark-background-color),
-        var(--light-background-color)
-    );
+    background: rgb(20, 20, 20);
 }
 
 ::selection {
-    background: var(--blue-color);
-    color: var(--dark-text-color);
+    background: var(--dark-text-color);
+    color: var(--red-color);
 }
 
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    transition: var(--transition);
 }
 
 body {
@@ -61,10 +58,19 @@ body {
     font-weight: 300;
 
     background-color: var(--dark-background-color);
-    background-image: url("./public/assets/neobg-p.jpeg");
+    background-image: url("./public/assets/neo-bg.jpeg");
+    alt: "Credit: TimelessArt";
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    background-attachment: fixed;
+    animation: shadowInside 10s ease-in-out infinite;
+}
+
+@keyframes shadowInside {
+    50% {
+        box-shadow: inset 10px 20px 100px 0px var(--red-color);
+    }
 }
 
 .screen {
@@ -79,9 +85,14 @@ header {
     padding-inline: 2em;
 }
 
+.icons {
+    filter: drop-shadow(0px 0px 10px #ffffff);
+}
+
 .dynamic-header {
     width: 250px;
     height: 50px;
+    outline: 0;
 
     background-color: #020202;
     border-radius: 25px;
@@ -92,14 +103,14 @@ header {
     align-items: center;
     padding: 1em;
     animation-duration: 4s;
-    transition: width 400ms, height 700ms, border-radius 300ms,
-        align-items 300ms;
+    transition: width 638ms, height 800ms, border-radius 300ms,
+        padding-bottom 638ms;
 
-    &:hover {
-        align-items: flex-start;
+    &:focus {
+        padding-bottom: 6.5em;
         width: 400px;
         height: 150px;
-        border-radius: 26px;
+        border-radius: 40px;
     }
 }
 
@@ -108,7 +119,8 @@ main {
 }
 
 section.neo {
-    padding-block: 5em;
+    padding-top: 10em;
+    padding-bottom: 15em;
     inset: 100%;
     backdrop-filter: blur(40px);
     mask: linear-gradient(180deg, transparent, black 30%);
@@ -120,6 +132,7 @@ section.neo {
         font-weight: 800;
         opacity: 0.8;
         letter-spacing: -0.2px;
+        transition: font-size 0.1s ease, opacity 0.1s ease;
     }
 
     & .titles {
@@ -139,6 +152,65 @@ section.neo {
         background-color: rgba(0, 0, 0, 0.2);
         padding: 4px 8px;
         border-radius: 9px;
+        transition: font-size 0.1s ease, opacity 0.1s ease;
+    }
+}
+
+section.about-me {
+    inset: 100%;
+    backdrop-filter: blur(40px);
+    background-color: rgb(18, 24, 31);
+    box-shadow: 0 0 125px 120px rgb(18, 24, 31);
+    color: var(--light-text-color);
+
+    & > div {
+        margin-inline: clamp(15px, 10vw, 150px);
+        padding-block: 5em;
+
+        &.first-info {
+            display: flex;
+            gap: 5em;
+            justify-content: center;
+            align-items: flex-start;
+            border-bottom: 1px dashed gray;
+        }
+    }
+
+    & .title {
+        font-family: var(--gloock-font-family);
+        font-size: clamp(0.6em, 2vw, 1.7em);
+        display: inline;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5em;
+        color: var(--light-text-color);
+        opacity: 0.8;
+        padding: 4px 8px;
+        border-radius: 23px;
+        border: 0.25px dashed var(--light-text-color);
+        transition: font-size 0.1s ease, opacity 0.1s ease;
+    }
+
+    & h2 {
+        letter-spacing: 1.2px;
+        color: var(--light-text-color);
+        opacity: 0.7;
+    }
+
+    & p {
+        margin-top: 1em;
+        opacity: 0.9;
+    }
+
+    & img {
+        height: 300px;
+        width: fit-content;
+        object-fit: cover;
+        border-radius: 13px;
+        box-shadow: 0 0 0px 3px rgba(251, 115, 115, 0.5),
+            0 0 0px 6px rgba(251, 115, 115, 0.3),
+            0 0 0px 9px rgba(251, 115, 115, 0.2);
+        mix-blend-mode: exclusion;
     }
 }
 
@@ -169,9 +241,13 @@ div.information {
 
     padding-bottom: var(--dimension-em);
     & > img {
-        width: clamp(50px, 50%, 75px);
-        border-radius: 100px;
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        object-position: center 20%;
+        border-radius: 1000px;
         animation-duration: 3.2s;
+        transition: width 0.1s ease-in-out;
     }
 }
 
@@ -213,4 +289,41 @@ div.information {
     animation-iteration-count: 1;
     animation-duration: 2.38s;
     animation-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    z-index: 2;
+    mix-blend-mode: color;
+    margin-inline: clamp(15px, 10vw, 150px);
+    padding-block: 5em;
+
+    & h3 {
+        font-family: var(--gloock-font-family);
+        color: var(--light-text-color);
+    }
+    & p {
+        color: #ccc;
+        opacity: 0.7;
+        font-size: x-small;
+    }
+}
+
+.highlighted {
+    color: color-mix(in srgb, var(--red-color) 30%, white 30%);
+    opacity: 1 !important;
+}
+
+@media (max-width: 768px) {
+    .first-info {
+        flex-direction: column;
+
+        & img {
+            width: 100% !important;
+            height: 150px !important;
+        }
+    }
 }
