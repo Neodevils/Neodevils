@@ -37,22 +37,4 @@ window.addEventListener("scroll", function () {
             title.style.fontSize = `${fontSize * 0.8}rem`;
         });
     });
-
-    const information = document.querySelector("div.information");
-    const img = information.querySelector("body > img");
-
-    const minImageSize = 50;
-    const maxImageSize = 300;
-
-    const imageSize =
-        minImageSize + (maxImageSize - minImageSize) * scrollFraction;
-
-    img.style.width = `${imageSize}px`;
-});
-
-const images = document.querySelector(".images");
-
-images.scrollIntoView({
-    behavior: "smooth",
-    inline: "start",
 });
