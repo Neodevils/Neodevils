@@ -6,11 +6,11 @@
 
 <main>
     <div align="center">
-        <a href="https://neoaichan.me">
+        <a href="https://neodevils.github.io/Neodevils/">
             <img src="https://img.shields.io/static/v1?color=ff5353&label=Website&message=neoaichan.me&style=flat&logo=github&logoColor=ffffff&labelColor=334155">
         </a>
-        <a href="https://figma.com/@neodevil">
-            <img src="https://img.shields.io/static/v1?color=ff5353&label=Figma&message=@neodevil&style=flat&logo=figma&logoColor=ffffff&labelColor=334155">
+        <a href="https://figma.com/@neodevils">
+            <img src="https://img.shields.io/static/v1?color=ff5353&label=Figma&message=@neodevils&style=flat&logo=figma&logoColor=ffffff&labelColor=334155">
         </a>
         <a href="https://twitter.com/neodevils_">
             <img src="https://img.shields.io/badge/Twitter-neodevils-ff5353?style=flat&logo=twitter&logoColor=ffffff&labelColor=334155">
