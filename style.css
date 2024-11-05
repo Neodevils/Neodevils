@@ -443,7 +443,6 @@ footer {
     body {
         background-position: top;
         overflow-x: hidden;
-        background-size: cover !important;
     }
 
     .first-info {
@@ -453,5 +452,11 @@ footer {
             width: 100% !important;
             height: 150px !important;
         }
+    }
+}
+
+@media (max-width: 499px) {
+    body {
+        background-size: cover !important;
     }
 }
