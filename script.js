@@ -20,14 +20,6 @@ function initializeLenis() {
 }
 
 function initializeAnimations() {
-    gsap.to(".link a", {
-        y: 0,
-        duration: 1,
-        stagger: 0.1,
-        ease: "power4.out",
-        delay: 1,
-    });
-
     if (document.querySelector(".hero h1")) {
         const heroText = new SplitType(".hero h1", { types: "chars" });
         gsap.set(heroText.chars, { y: -700 });
