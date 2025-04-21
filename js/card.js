@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     animateCard();
     setupEmailCopy();
+    setupCVDownload();
     setupClock();
 });
 
@@ -66,6 +67,37 @@ function setupEmailCopy() {
                 console.error("Failed to copy: ", err);
             });
     });
+}
+
+function setupCVDownload() {
+    const cvLink = document.querySelector(".card-footer a");
+
+    if (cvLink) {
+        cvLink.addEventListener("click", function (e) {
+            gsap.to(".card-footer", {
+                backgroundColor: "#12cd2b",
+                duration: 0.2,
+                onComplete: () => {
+                    gsap.to(".card-footer", {
+                        backgroundColor: "#8aff58",
+                        duration: 0.5,
+                    });
+                },
+            });
+
+            gsap.to(cvLink, {
+                scale: 1.1,
+                duration: 0.2,
+                onComplete: () => {
+                    gsap.to(cvLink, {
+                        scale: 1,
+                        duration: 0.3,
+                        ease: "back.out(2)",
+                    });
+                },
+            });
+        });
+    }
 }
 
 function setupClock() {
