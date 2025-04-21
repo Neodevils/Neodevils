@@ -407,6 +407,16 @@ document.addEventListener("DOMContentLoaded", function () {
                     duration: 0.3,
                 });
             });
+
+            contactButton.addEventListener("click", () => {
+                const email = "neodevils_contact@icloud.com";
+                const subject = encodeURIComponent("Project Discussion");
+                const body = encodeURIComponent(
+                    "Hi İbrahim,\n\nI'd like to discuss a project with you.\n\nRegards,"
+                );
+                const mailtoUrl = `mailto:${email}?subject=${subject}&body=${body}`;
+                window.location.href = mailtoUrl;
+            });
         }
 
         const tools = document.querySelectorAll(".tools li");

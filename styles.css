@@ -335,7 +335,7 @@ section {
         & .contact-button {
             display: flex;
             align-items: center;
-            gap: 0.5em;
+            gap: 0.25em;
             justify-content: center;
             background-color: var(--accent-color);
             color: var(--button-text-color);
@@ -356,6 +356,7 @@ section {
 
             & img {
                 filter: var(--button-icon-filter);
+                width: 20px;
                 transition: filter 0.3s ease;
             }
 
