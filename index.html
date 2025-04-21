@@ -1,64 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0" />
+        <title>home.</title>
+        <link
+            rel="stylesheet"
+            href="./styles.css" />
+        <link
+            rel="icon"
+            href="./public/assets/images/memoji.webp" />
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neodevil | home.</title>
-    <link rel="stylesheet" href="../css/animations.css">
-    <link rel="stylesheet" href="./styles.css">
-</head>
-
-<body>
-    <header>
-        <div tabindex="-1" class="dynamic-header springish">
-            <a class="link" href="./index.html">
-                <img width="25px" height="25px" src="./public/assets/images/ibrahim.jpeg" alt="İbrahim" />
-            </a>
-            <div>
-                <h4 class="title">Navigation</h4>
-                <nav>
-                    <div class="links">
-                        <a href="./html/about.html">about</a>
-                    </div>
-                    <div class="links">
-                        <a href="./html/photos.html">photos</a>
-                    </div>
-                </nav>
-
+    <body>
+        <header>
+            <svg
+                id="logo"
+                width="40"
+                height="39"
+                viewBox="0 0 40 39"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M25.0562 18.5381C21.5253 17.3358 9.01742 -3.35978 4.55613 1.31037C0.147739 5.92516 0 13.5068 0 16.8129C0 23.1247 0.866783 32.0042 5.77547 33.8289C10.3476 35.5284 9.16578 18.4999 14.0562 18.4999C20.3478 18.4999 29.9938 40.7525 36.4085 38.1651C42.0475 35.8905 38.4974 26.9459 37.9648 20.9957C37.5006 15.8082 37.8396 1.86382 33.0562 4.0381C27.5562 6.5381 30.4487 20.3742 25.0562 18.5381Z"
+                    class="logo-fill" />
+            </svg>
+            <div class="header-links">
+                <a
+                    href="./pages/card.html"
+                    class="geist-700"
+                    >View Card</a
+                >
             </div>
-            <div class="circle"></div>
-        </div>
-    </header>
+        </header>
+        <main>
+            <section class="left_section">
+                <div class="org-info geist-400">
+                    <span>Founder of</span>
+                    <div>
+                        <img
+                            src="./public/assets/icons/minesa-logo.svg"
+                            alt="Minesa logo" />
+                        <span>Minesa Hub &</span>
+                    </div>
+                    <div>
+                        <img
+                            src="./public/assets/icons/blitzforge-logo.svg"
+                            alt="BlitzForge logo" />
+                        <span>BlitzForge Studios</span>
+                    </div>
+                </div>
 
-    <main class="container">
-        <div class="hero">
-            <h6 class="tag">
-                <div class="circle beat"></div>
-                <span>unavaliable</span>
-            </h6>
-            <h1>İBRAHİM
-                <br>
-                <h2><em>website</em> — yes, i <span style="color: rgb(226, 59, 38);">❤︎</span> doing website stuffs.
+                <div class="geist-700 title-and-image">
+                    <img
+                        src="./public/assets/images/neo.webp"
+                        alt="Neo"
+                        width="65px"
+                        height="65px" />
+                    <h1>İbrahim</h1>
+                </div>
+
+                <h2 class="geist-700">
+                    i design
+                    <span
+                        class="geist-400"
+                        style="color: #777777; font-size: 1.5rem">
+                        &&
+                    </span>
+                    code<span style="color: #777777">.</span>
                 </h2>
-            </h1>
-        </div>
 
-        <div class="floating-portraits">
-            <img src="./public/assets/images/potraits/potrait1.jpeg" alt="Portrait 1" class="floating-image"
-                draggable="false">
-            <img src="./public/assets/images/potraits/potrait2.jpeg" alt="Portrait 2" class="floating-image"
-                draggable="false">
-            <img src="./public/assets/images/potraits/potrait3.jpeg" alt="Portrait 3" class="floating-image"
-                draggable="false">
-        </div>
-    </main>
+                <button class="geist-700 contact-button">
+                    <img
+                        src="./public/assets/icons/video.svg"
+                        alt=""
+                        width="20px" />
+                    <span>talk project</span>
+                </button>
 
-    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://unpkg.com/split-type"></script>
-    <script src="./js/potraits.js"></script>
-    <script src="./script.js"></script>
-</body>
+                <div class="tools geist-400">
+                    <ul>
+                        <li>
+                            <img
+                                src="./public/assets/icons/rectangle.svg"
+                                alt="" />
+                            <span>design</span>
+                        </li>
+                        <li>
+                            <img
+                                src="./public/assets/icons/keyboard.svg"
+                                alt="" />
+                            <span>code</span>
+                        </li>
+                        <li>
+                            <img
+                                src="./public/assets/icons/macbook.svg"
+                                alt="" />
+                            <span>
+                                <strong>development:</strong> web & game
+                            </span>
+                        </li>
+                    </ul>
+                </div>
 
+                <div class="testimonials-container">
+                    <div class="testimonial geist-400 active">
+                        <q
+                            >İbrahim'le çalışmak resmen terapi gibiydi. Ne
+                            dediysem anladı, üstüne ekledi, siteyi öyle bir
+                            yaptı ki müşteriler ‘oha bu kim yaptı’ diye soruyor.
+                            Adamın eline mouse değince sanat çıkıyor resmen.</q
+                        >
+                        <div class="testimonial-info">
+                            <img
+                                class="user"
+                                src="./public/assets/images/melis.webp"
+                                alt="Melis T."
+                                width="50px"
+                                height="50px" />
+                            <div>
+                                <h3>Melis T.</h3>
+                                <span>Fashion Designer</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial geist-400">
+                        <q
+                            >I didn’t even have to explain much. Just gave him
+                            the vibe I wanted, and boom — İbrahim delivered
+                            something sleek, fast, and sexy as hell. Guy’s got
+                            serious dev magic, this man is cracked.</q
+                        >
+                        <div class="testimonial-info">
+                            <img
+                                class="user"
+                                src="./public/assets/images/ali.webp"
+                                alt="Ali K."
+                                width="50px"
+                                height="50px" />
+                            <div>
+                                <h3>Ali K.</h3>
+                                <span>YouTuber & Streamer</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial geist-400">
+                        <q
+                            >Kafamda deli sorular vardı ama İbrahim hepsini tek
+                            tek çözdü. Sitede hem tasarım harika hem de hız
+                            maşallah jet gibi. Böyle adamlara denk gelmek zor
+                            valla, denk gelmişken kaçırmayın.</q
+                        >
+                        <div class="testimonial-info">
+                            <img
+                                class="company"
+                                src="./public/assets/images/small-business.webp"
+                                alt="small private bussiness"
+                                width="50px"
+                                height="50px" />
+                            <div>
+                                <h3>Ayşe E.</h3>
+                                <span>Small Bussiness</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="right_section">
+                <a
+                    href="https://minesa-time.github.io/website/pages/projects/kaeru.html"
+                    target="_blank"
+                    class="project_1">
+                    <img
+                        src="./public/assets/images/project-kaeru.webp"
+                        alt="Project 1" />
+                    <div>
+                        <h4 class="geist-700">Kaeru</h4>
+                        <span class="geist-400">A Pro-Ticket Discord Bot</span>
+                    </div>
+                </a>
+                <a
+                    href="https://github.com/BlitzForge-Studios"
+                    target="_blank"
+                    class="project_2">
+                    <img
+                        src="./public/assets/images/project-dungeon-blitz.webp"
+                        alt="Project 2" />
+                    <div>
+                        <h4 class="geist-700">Dungeon Blitz: Remake</h4>
+                        <span class="geist-400">A Side-Scroll Game</span>
+                    </div>
+                </a>
+            </section>
+        </main>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+        <script>
+            window.addEventListener("load", function () {
+                if (typeof gsap !== "undefined") {
+                    console.log("GSAP loaded successfully");
+                } else {
+                    console.error("GSAP failed to load");
+                    document
+                        .querySelectorAll(".contact-button, .tools, .tools li")
+                        .forEach(function (el) {
+                            el.style.opacity = "1";
+                            el.style.visibility = "visible";
+                            el.style.display =
+                                el.tagName.toLowerCase() === "button"
+                                    ? "flex"
+                                    : el.classList.contains("tools")
+                                    ? "flex"
+                                    : el.tagName.toLowerCase() === "li"
+                                    ? "flex"
+                                    : "block";
+                        });
+                }
+            });
+        </script>
+
+        <script src="./script.js"></script>
+    </body>
 </html>
