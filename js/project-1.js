@@ -3,14 +3,12 @@ document.addEventListener("DOMContentLoaded", () => {
     setupButtons();
     setupUsedByHover();
 
-    // Ensure command tags and timeline are visible after a delay
     setTimeout(() => {
         document.querySelectorAll(".command-tag").forEach((tag) => {
             tag.style.opacity = 1;
         });
         document.querySelector(".command-tags").style.opacity = 1;
 
-        // Ensure timeline is visible
         document.querySelector(".ticket-timeline").style.opacity = 1;
         document.querySelectorAll(".timeline-item").forEach((item) => {
             item.style.opacity = 1;
@@ -26,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelectorAll(".timeline-button").forEach((button) => {
             button.style.opacity = 1;
         });
-    }, 2000); // 2 seconds delay as a fallback
+    }, 2000);
 });
 
 function initAnimations() {
@@ -52,7 +50,6 @@ function initAnimations() {
         "-=0.3"
     );
 
-    // Animate project-used-by section
     tl.to(
         ".project-used-by",
         {
@@ -63,7 +60,6 @@ function initAnimations() {
         "-=0.7"
     );
 
-    // Animate user images with stagger
     tl.from(
         ".users img",
         {
@@ -77,7 +73,6 @@ function initAnimations() {
         "-=0.2"
     );
 
-    // Animate server images with stagger
     tl.from(
         ".servers img",
         {
@@ -111,7 +106,6 @@ function initAnimations() {
         "-=0.5"
     );
 
-    // Animate command tags with stagger
     tl.to(
         ".command-tags",
         {
@@ -119,7 +113,6 @@ function initAnimations() {
             y: 0,
             duration: 0.7,
             onComplete: function () {
-                // Ensure command tags are visible
                 document.querySelectorAll(".command-tag").forEach((tag) => {
                     tag.style.opacity = 1;
                 });
@@ -142,7 +135,6 @@ function initAnimations() {
         "-=0.4"
     );
 
-    // Animate timeline
     tl.to(
         ".ticket-timeline",
         {
@@ -154,7 +146,6 @@ function initAnimations() {
         "-=0.2"
     );
 
-    // Animate timeline line
     tl.fromTo(
         ".ticket-timeline::before",
         {
@@ -169,7 +160,6 @@ function initAnimations() {
         "-=0.4"
     );
 
-    // Animate timeline items with stagger
     tl.staggerFrom(
         ".timeline-item",
         0.4,
@@ -182,7 +172,6 @@ function initAnimations() {
         "-=0.4"
     );
 
-    // Animate timeline dots with stagger
     tl.staggerFrom(
         ".timeline-dot",
         0.3,
@@ -194,7 +183,6 @@ function initAnimations() {
         "-=1.2"
     );
 
-    // Animate timeline icons with stagger
     tl.staggerFrom(
         ".timeline-icon",
         0.3,
@@ -238,7 +226,6 @@ function setupButtons() {
     const popupContainer = document.getElementById("popup-container");
     const popupClose = document.getElementById("popup-close");
 
-    // Setup popup button hover animations
     popupButtons.forEach((button) => {
         button.addEventListener("mouseenter", () => {
             gsap.to(button, {
@@ -256,13 +243,10 @@ function setupButtons() {
         });
     });
 
-    // Setup timeline button to open popup
     if (timelineButton && popupContainer) {
         timelineButton.addEventListener("click", () => {
-            // Open popup
             popupContainer.classList.add("active");
 
-            // Animate popup content
             gsap.fromTo(
                 ".popup-content",
                 {
@@ -277,7 +261,6 @@ function setupButtons() {
                 }
             );
 
-            // Animate popup buttons with stagger
             gsap.fromTo(
                 ".popup-btn",
                 {
@@ -295,10 +278,8 @@ function setupButtons() {
         });
     }
 
-    // Setup close button
     if (popupClose && popupContainer) {
         popupClose.addEventListener("click", () => {
-            // Animate out
             gsap.to(".popup-content", {
                 y: 20,
                 opacity: 0,
@@ -310,7 +291,6 @@ function setupButtons() {
             });
         });
 
-        // Close when clicking outside the popup
         popupContainer.addEventListener("click", (e) => {
             if (e.target === popupContainer) {
                 gsap.to(".popup-content", {
@@ -333,9 +313,7 @@ function setupUsedByHover() {
     const serverImages = document.querySelectorAll(".servers img");
     const commandTags = document.querySelectorAll(".command-tag");
 
-    // Add hover animation to the section
     usedBySection.addEventListener("mouseenter", () => {
-        // Animate user images
         gsap.to(userImages, {
             y: -3,
             stagger: 0.05,
@@ -344,7 +322,6 @@ function setupUsedByHover() {
             boxShadow: "0 4px 10px rgba(153, 102, 51, 0.2)",
         });
 
-        // Animate server images
         gsap.to(serverImages, {
             y: -3,
             stagger: 0.05,
@@ -353,7 +330,6 @@ function setupUsedByHover() {
             boxShadow: "0 4px 10px rgba(153, 102, 51, 0.2)",
         });
 
-        // Animate strong text
         gsap.to(".project-used-by span strong", {
             color: "var(--accent-hover-color)",
             duration: 0.3,
@@ -362,7 +338,6 @@ function setupUsedByHover() {
     });
 
     usedBySection.addEventListener("mouseleave", () => {
-        // Reset user images
         gsap.to(userImages, {
             y: 0,
             stagger: 0.05,
@@ -371,7 +346,6 @@ function setupUsedByHover() {
             boxShadow: "none",
         });
 
-        // Reset server images
         gsap.to(serverImages, {
             y: 0,
             stagger: 0.05,
@@ -380,7 +354,6 @@ function setupUsedByHover() {
             boxShadow: "none",
         });
 
-        // Reset strong text
         gsap.to(".project-used-by span strong", {
             color: "var(--accent-color)",
             duration: 0.3,
@@ -388,7 +361,6 @@ function setupUsedByHover() {
         });
     });
 
-    // Add hover animations for command tags
     commandTags.forEach((tag) => {
         tag.addEventListener("mouseenter", () => {
             gsap.to(tag, {

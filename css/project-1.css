@@ -147,8 +147,7 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     height: auto;
-    overflow-y: auto; /* Allow vertical scrolling */
-    overflow-x: hidden; /* Hide horizontal overflow */
+    overflow: hidden;
     margin: 0;
     box-sizing: border-box;
     position: relative;
@@ -229,8 +228,8 @@ body {
     justify-content: flex-start;
     position: relative;
     z-index: 1;
-    padding-bottom: 80px; /* Reduced padding */
-    height: auto; /* Auto height to fit content */
+    padding-bottom: 80px;
+    height: auto;
 }
 
 .project-used-by {
@@ -352,7 +351,6 @@ body {
     box-shadow: 0 3px 8px var(--glow-color);
 }
 
-/* Timeline Styles */
 .ticket-timeline {
     margin: 25px 0 30px;
     position: relative;
@@ -658,11 +656,11 @@ body {
     gap: 10px;
     z-index: 1;
     transform: rotate(-20deg);
-    transform-origin: bottom right; /* Set rotation origin to bottom right */
+    transform-origin: bottom right;
     transition: all var(--transition-speed) ease;
     will-change: transform, opacity;
-    perspective: 1000px; /* Add perspective for 3D effect */
-    pointer-events: auto; /* Ensure clicks work */
+    perspective: 1000px;
+    pointer-events: auto;
 
     & img {
         height: 300px;
@@ -674,7 +672,6 @@ body {
         transition: all var(--transition-speed) ease;
         box-shadow: 0 5px 15px var(--shadow-color);
 
-        /* Making cards on top of each other */
         &:nth-child(1) {
             transform: translateX(60px) rotate(-3deg);
         }
@@ -691,7 +688,7 @@ body {
     }
 
     &:hover {
-        transform: translateY(70px) rotate(-3deg); /* Move up to reveal more on hover */
+        transform: translateY(70px) rotate(-3deg);
     }
 
     &:hover img:not(:hover) {
@@ -715,20 +712,20 @@ body {
     }
 
     .info-section {
-        height: auto; /* Auto height to fit content */
+        height: auto;
         padding: 30px;
         overflow-x: hidden;
         box-shadow: none;
     }
 
     .info-content {
-        padding-bottom: 40px; /* Reduced padding since album cards are hidden */
-        height: auto; /* Auto height to fit content */
+        padding-bottom: 40px;
+        height: auto;
     }
 
     .info-section::after,
     .info-section::before {
-        display: none; /* Hide glow effects on smaller screens */
+        display: none;
     }
 
     .command-tags {
@@ -791,7 +788,7 @@ body {
     }
 
     .album-cards {
-        display: none; /* Hide album cards on smaller screens */
+        display: none;
     }
 }
 
@@ -803,18 +800,14 @@ body {
     .info-section {
         padding: 25px;
         box-shadow: none;
-        height: auto; /* Auto height to fit content */
+        height: auto;
         overflow-x: hidden;
     }
 
     .info-content {
-        padding-bottom: 30px; /* Reduced padding since album cards are hidden */
-        height: auto; /* Auto height to fit content */
+        padding-bottom: 30px;
+        height: auto;
     }
-
-    /* Glow effects already hidden from 1024px breakpoint */
-
-    /* Album cards already hidden from 1024px breakpoint */
 
     .command-tags {
         gap: 5px;
@@ -910,9 +903,7 @@ body {
 
 @media (max-width: 480px) {
     .info-content {
-        padding-bottom: 20px; /* Reduced padding since album cards are hidden */
-        height: auto; /* Auto height to fit content */
+        padding-bottom: 20px;
+        height: auto;
     }
-
-    /* Album cards already hidden from 1024px breakpoint */
 }
