@@ -43,17 +43,38 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(() => {
         initAnimations();
         initTestimonials();
+
+        window.addEventListener("resize", handleResize);
     }, 100);
+
+    function handleResize() {
+        if (window.innerWidth <= 768) {
+            gsap.set(".left_section", {
+                opacity: 1,
+                x: 0,
+                scale: 1,
+                clearProps: "transform,scale",
+            });
+        }
+    }
 
     function initAnimations() {
         const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-        gsap.set(".left_section", {
-            opacity: 0,
-            x: -50,
-            scale: 0.95,
-            transformOrigin: "center left",
-        });
+        if (window.innerWidth > 768) {
+            gsap.set(".left_section", {
+                opacity: 0,
+                x: -50,
+                scale: 0.95,
+                transformOrigin: "center left",
+            });
+        } else {
+            gsap.set(".left_section", {
+                opacity: 1,
+                x: 0,
+                scale: 1,
+            });
+        }
 
         tl.from("header", {
             y: -50,
@@ -61,17 +82,19 @@ document.addEventListener("DOMContentLoaded", function () {
             duration: 0.8,
         });
 
-        tl.to(
-            ".left_section",
-            {
-                opacity: 1,
-                x: 0,
-                scale: 1,
-                duration: 0.5,
-                ease: "fade.inOut(1.2)",
-            },
-            "-=0.5"
-        );
+        if (window.innerWidth > 768) {
+            tl.to(
+                ".left_section",
+                {
+                    opacity: 1,
+                    x: 0,
+                    scale: 1,
+                    duration: 0.5,
+                    ease: "fade.inOut(1.2)",
+                },
+                "-=0.5"
+            );
+        }
 
         tl.from(
             "#logo",

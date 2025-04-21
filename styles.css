@@ -116,6 +116,9 @@ body {
     flex-direction: column;
     overflow: hidden;
     transition: background-color 0.3s ease, color 0.3s ease;
+    /* Add safe area insets for modern mobile devices */
+    padding: env(safe-area-inset-top, 0) env(safe-area-inset-right, 0)
+        env(safe-area-inset-bottom, 0) env(safe-area-inset-left, 0);
 }
 
 header {
@@ -133,7 +136,7 @@ header {
     background-color: var(--card-background-color);
     transition: background-color 0.3s ease, color 0.3s ease;
 
-    & .header-links {
+    & nav {
         display: flex;
         gap: 1rem;
     }
@@ -141,6 +144,16 @@ header {
     & a {
         color: var(--gray-text-color);
         text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        & img {
+            filter: var(--icon-filter);
+            transition: filter 0.3s ease;
+            margin-right: 0.5em;
+            width: 16px;
+        }
 
         &:hover {
             color: var(--text-color);
@@ -172,6 +185,15 @@ main {
         height: auto;
         overflow-y: auto;
         margin-bottom: 1em;
+        padding-left: max(
+            20px,
+            env(safe-area-inset-left)
+        ); /* Add safe area padding */
+        padding-right: max(
+            20px,
+            env(safe-area-inset-right)
+        ); /* Add safe area padding */
+        width: 100%; /* Ensure full width */
     }
 
     header {
@@ -187,6 +209,18 @@ main {
 
     .left_section {
         margin-bottom: 0.75em;
+        opacity: 1 !important; /* Force visibility on mobile */
+        transform: none !important; /* Reset any transforms */
+        display: flex !important; /* Ensure display is flex */
+        visibility: visible !important; /* Ensure visibility */
+        padding-left: max(
+            1rem,
+            env(safe-area-inset-left)
+        ); /* Add safe area padding */
+        padding-right: max(
+            1rem,
+            env(safe-area-inset-right)
+        ); /* Add safe area padding */
     }
 
     .right_section {
