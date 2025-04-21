@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     try {
-        // Make sure profile image is visible from the start
         gsap.set(".title-and-image img", {
             opacity: 1,
             visibility: "visible",
@@ -49,11 +48,30 @@ document.addEventListener("DOMContentLoaded", function () {
     function initAnimations() {
         const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
+        gsap.set(".left_section", {
+            opacity: 0,
+            x: -50,
+            scale: 0.95,
+            transformOrigin: "center left",
+        });
+
         tl.from("header", {
             y: -50,
             opacity: 0,
             duration: 0.8,
         });
+
+        tl.to(
+            ".left_section",
+            {
+                opacity: 1,
+                x: 0,
+                scale: 1,
+                duration: 0.5,
+                ease: "fade.inOut(1.2)",
+            },
+            "-=0.5"
+        );
 
         tl.from(
             "#logo",
@@ -76,10 +94,8 @@ document.addEventListener("DOMContentLoaded", function () {
             "-=0.7"
         );
 
-        // Animate profile image with a safer approach
         const profileImg = document.querySelector(".title-and-image img");
         if (profileImg) {
-            // First ensure it's visible
             gsap.set(profileImg, {
                 opacity: 1,
                 visibility: "visible",
@@ -87,7 +103,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 autoAlpha: 1,
             });
 
-            // Then animate it
             tl.to(
                 profileImg,
                 {
@@ -252,7 +267,6 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
 
-        // Add hover effect for profile image
         const profileImage = document.querySelector(".title-and-image img");
         if (profileImage) {
             profileImage.addEventListener("mouseenter", () => {

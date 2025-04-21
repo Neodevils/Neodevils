@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0" />
+        <title>Profile Card</title>
+        <link
+            rel="stylesheet"
+            href="../css/card.css" />
+        <link
+            rel="icon"
+            href="../public/assets/images/memoji.webp" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    </head>
+    <body>
+        <a
+            href="../index.html"
+            class="back">
+            <span>Back</span>
+        </a>
+        <div class="card-container">
+            <div class="card">
+                <div class="card-header">
+                    <div class="job-title">Web Designer</div>
+                    <div class="time">placeholder</div>
+                </div>
+                <div class="card-body">
+                    <div class="profile">
+                        <img
+                            src="../public/assets/images/memoji.webp"
+                            alt="Profile Image"
+                            class="profile-img" />
+                        <div class="profile-info">
+                            <h2 class="name">İbrahim Güneş</h2>
+                            <p class="status">
+                                <span class="status-dot"></span> Avaliable for
+                                work
+                            </p>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <button
+                            disabled
+                            class="btn hire-btn"
+                            style="
+                                filter: brightness(0.5);
+                                cursor: not-allowed;
+                            ">
+                            <img
+                                class="button-icon"
+                                src="../public/assets/icons/hire.svg"
+                                alt="" />
+
+                            <span>Hire Me</span>
+                        </button>
+                        <button class="btn email-btn">
+                            <img
+                                class="button-icon"
+                                src="../public/assets/icons/copy.svg"
+                                alt="" />
+                            <span>Copy Email</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="glow"></div>
+            </div>
+            <div class="card-footer">
+                <img
+                    class="button-icon"
+                    src="../public/assets/icons/document.svg"
+                    alt="Clock Icon"
+                    style="filter: brightness(0)" />
+                <a
+                    download="cv.pdf"
+                    href="../public/assets/cv/cv.pdf"
+                    >download: cv</a
+                >
+            </div>
+        </div>
+
+        <script src="../js/card.js"></script>
+    </body>
+</html>
