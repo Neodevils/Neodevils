@@ -43,17 +43,43 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(() => {
         initAnimations();
         initTestimonials();
+
+        // Handle window resize to ensure left_section visibility on mobile
+        window.addEventListener("resize", handleResize);
     }, 100);
+
+    // Function to handle window resize
+    function handleResize() {
+        if (window.innerWidth <= 768) {
+            // On mobile, ensure left_section is visible
+            gsap.set(".left_section", {
+                opacity: 1,
+                x: 0,
+                scale: 1,
+                clearProps: "transform,scale",
+            });
+        }
+    }
 
     function initAnimations() {
         const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-        gsap.set(".left_section", {
-            opacity: 0,
-            x: -50,
-            scale: 0.95,
-            transformOrigin: "center left",
-        });
+        // Only set initial animation state if not on mobile
+        if (window.innerWidth > 768) {
+            gsap.set(".left_section", {
+                opacity: 0,
+                x: -50,
+                scale: 0.95,
+                transformOrigin: "center left",
+            });
+        } else {
+            // On mobile, ensure left_section is visible
+            gsap.set(".left_section", {
+                opacity: 1,
+                x: 0,
+                scale: 1,
+            });
+        }
 
         tl.from("header", {
             y: -50,
@@ -61,17 +87,20 @@ document.addEventListener("DOMContentLoaded", function () {
             duration: 0.8,
         });
 
-        tl.to(
-            ".left_section",
-            {
-                opacity: 1,
-                x: 0,
-                scale: 1,
-                duration: 0.5,
-                ease: "fade.inOut(1.2)",
-            },
-            "-=0.5"
-        );
+        // Only animate left_section if not on mobile
+        if (window.innerWidth > 768) {
+            tl.to(
+                ".left_section",
+                {
+                    opacity: 1,
+                    x: 0,
+                    scale: 1,
+                    duration: 0.5,
+                    ease: "fade.inOut(1.2)",
+                },
+                "-=0.5"
+            );
+        }
 
         tl.from(
             "#logo",

@@ -1,0 +1,313 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist+Sans:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap");
+
+:root {
+    --background-color: #f1f1f1;
+    --card-background-color: #ffffff;
+    --text-color: #333;
+    --gray-text-color: #888;
+    --light-text-color: #ebebeb;
+    --accent-color: #996633;
+    --accent-hover-color: #7a5227;
+    --button-text-color: #ffffff;
+    --button-hover-text-color: #ffffff;
+    --border-color: #dbdbdb;
+    --shadow-color: rgba(0, 0, 0, 0.05);
+    --icon-filter: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #121212;
+        --card-background-color: #1e1e1e;
+        --text-color: #f1f1f1;
+        --gray-text-color: #aaaaaa;
+        --light-text-color: #ebebeb;
+        --accent-color: #996633;
+        --accent-hover-color: #7a5227;
+        --button-text-color: #ffffff;
+        --button-hover-text-color: #ffffff;
+        --border-color: #333333;
+        --shadow-color: rgba(0, 0, 0, 0.2);
+        --icon-filter: invert(1) brightness(1.5);
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Geist Sans", sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.back {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: var(--gray-text-color);
+    text-decoration: none;
+    font-size: 14px;
+    font-family: "Geist Mono", monospace;
+    z-index: 10;
+    opacity: 0;
+}
+
+.back:hover {
+    color: var(--text-color);
+    text-decoration: underline;
+}
+
+.project-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    width: 100%;
+    height: 80vh;
+    max-height: 700px;
+    opacity: 0;
+}
+
+.video-section {
+    background-color: var(--card-background-color);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1), 0 5px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.video-section video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 24px;
+}
+
+.info-section {
+    background-color: var(--card-background-color);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1), 0 5px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project-header {
+    margin-bottom: 20px;
+}
+
+.project-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: -1.2px;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.project-subtitle {
+    font-size: 1.2rem;
+    color: var(--gray-text-color);
+    font-family: "Geist Mono", monospace;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.project-description {
+    margin-bottom: 30px;
+    line-height: 1.6;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.project-features {
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.feature-list {
+    list-style: none;
+    margin-top: 10px;
+}
+
+.feature-list li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.feature-list li::before {
+    content: "→";
+    color: var(--accent-color);
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.project-buttons {
+    display: flex;
+    gap: 15px;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.project-btn {
+    padding: 12px 24px;
+    border-radius: 12px;
+    border: none;
+    font-family: "Geist Sans", sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.primary-btn {
+    background-color: var(--accent-color);
+    color: var(--button-text-color);
+
+    & span {
+        color: var(--button-text-color);
+        filter: var(--icon-filter);
+    }
+}
+
+.primary-btn:hover {
+    background-color: var(--accent-hover-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(153, 102, 51, 0.3);
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+.secondary-btn:hover {
+    background-color: rgba(153, 102, 51, 0.1);
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(153, 102, 51, 0.1);
+}
+
+.btn-icon {
+    width: 20px;
+    height: 20px;
+    filter: var(--icon-filter);
+}
+
+@media (max-width: 1024px) {
+    .project-container {
+        padding: 10px;
+    }
+
+    .project-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        align-items: stretch;
+        justify-content: center;
+    }
+
+    .video-section {
+        height: 400px;
+    }
+
+    .info-section {
+        padding: 30px;
+    }
+
+    .project-title {
+        font-size: 2.5rem;
+    }
+
+    .project-subtitle {
+        font-size: 1.1rem;
+    }
+    .project-description {
+        font-size: 1rem;
+    }
+    .project-features {
+        font-size: 1rem;
+    }
+    .project-buttons {
+        gap: 10px;
+    }
+    .project-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    .btn-icon {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .project-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        align-items: stretch;
+        justify-content: center;
+    }
+
+    .video-section {
+        height: 300px;
+    }
+
+    .info-section {
+        padding: 30px;
+    }
+
+    .project-title {
+        font-size: 2.5rem;
+    }
+
+    .project-subtitle {
+        font-size: 1.1rem;
+    }
+    .project-description {
+        font-size: 1rem;
+    }
+    .project-features {
+        font-size: 1rem;
+    }
+    .project-buttons {
+        gap: 10px;
+    }
+    .project-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    .btn-icon {
+        width: 18px;
+        height: 18px;
+    }
+}
