@@ -14,6 +14,15 @@
     --border-color: #dbdbdb;
     --shadow-color: rgba(0, 0, 0, 0.05);
     --icon-filter: none;
+    --feature-border-color: #996633;
+    --feature-bg-color: rgba(153, 102, 51, 0.05);
+    --gradient: linear-gradient(
+        108deg,
+        #0894ff,
+        #c959dd 34%,
+        #ff2e54 68%,
+        #ff9004
+    );
 }
 
 @media (prefers-color-scheme: dark) {
@@ -30,6 +39,8 @@
         --border-color: #333333;
         --shadow-color: rgba(0, 0, 0, 0.2);
         --icon-filter: invert(1) brightness(1.5);
+        --feature-border-color: #996633;
+        --feature-bg-color: rgba(153, 102, 51, 0.1);
     }
 }
 
@@ -47,6 +58,7 @@ body {
     display: flex;
     flex-direction: column;
     transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
 }
 
 .back {
@@ -58,40 +70,35 @@ body {
     font-size: 14px;
     font-family: "Geist Mono", monospace;
     z-index: 10;
+    mix-blend-mode: difference;
     opacity: 0;
+    text-shadow: 0 0 10px var(--text-color);
 }
 
 .back:hover {
-    color: var(--text-color);
     text-decoration: underline;
 }
 
 .project-container {
     display: flex;
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
     height: 100vh;
     align-items: center;
     justify-content: center;
 }
 
 .project-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    display: flex;
+    flex-direction: row;
     width: 100%;
-    height: 80vh;
-    max-height: 700px;
+    height: 100%;
     opacity: 0;
 }
 
 .video-section {
-    background-color: var(--card-background-color);
-    border-radius: 24px;
+    flex: 1;
+    height: 100%;
     overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1), 0 5px 15px rgba(0, 0, 0, 0.05);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -102,25 +109,33 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 24px;
 }
 
 .info-section {
-    background-color: var(--card-background-color);
-    border-radius: 24px;
+    flex: 1.25;
+    height: 100%;
     padding: 40px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1), 0 5px 15px rgba(0, 0, 0, 0.05);
+    background-color: var(--card-background-color);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow-y: hidden;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.info-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .project-header {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .project-title {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 10px;
     letter-spacing: -1.2px;
@@ -137,33 +152,52 @@ body {
 }
 
 .project-description {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     line-height: 1.6;
     opacity: 0;
     transform: translateY(20px);
 }
 
 .project-features {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     opacity: 0;
     transform: translateY(20px);
+    padding: 25px;
+    border-radius: 16px;
+    border: 2px solid var(--feature-border-color);
+    background-color: var(--feature-bg-color);
+    transition: all 0.3s ease;
+}
+
+.project-features:hover {
+    box-shadow: 0 5px 15px rgba(153, 102, 51, 0.2);
+    transform: translateY(-2px);
+}
+
+.project-features h3 {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
 }
 
 .feature-list {
     list-style: none;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 .feature-list li {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     display: flex;
     align-items: center;
+    font-size: 1.05rem;
 }
 
 .feature-list li::before {
     content: "→";
     color: var(--accent-color);
-    margin-right: 10px;
+    margin-right: 12px;
     font-weight: bold;
 }
 
@@ -172,10 +206,11 @@ body {
     gap: 15px;
     opacity: 0;
     transform: translateY(20px);
+    margin-top: 20px;
 }
 
 .project-btn {
-    padding: 12px 24px;
+    padding: 14px 28px;
     border-radius: 12px;
     border: none;
     font-family: "Geist Sans", sans-serif;
@@ -185,7 +220,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 10px;
     transition: all 0.3s ease;
 }
 
@@ -225,22 +260,23 @@ body {
 }
 
 @media (max-width: 1024px) {
-    .project-container {
-        padding: 10px;
+    .project-content {
+        flex-direction: column;
     }
 
-    .project-content {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        align-items: stretch;
-        justify-content: center;
+    .video-section,
+    .info-section {
+        flex: none;
+        width: 100%;
     }
 
     .video-section {
-        height: 400px;
+        height: 50vh;
     }
 
     .info-section {
+        height: auto;
+        min-height: 50vh;
         padding: 30px;
     }
 
@@ -251,19 +287,27 @@ body {
     .project-subtitle {
         font-size: 1.1rem;
     }
+
     .project-description {
         font-size: 1rem;
+        margin-bottom: 30px;
     }
+
     .project-features {
         font-size: 1rem;
+        padding: 20px;
+        margin-bottom: 30px;
     }
+
     .project-buttons {
         gap: 10px;
     }
+
     .project-btn {
-        padding: 10px 20px;
+        padding: 12px 24px;
         font-size: 0.9rem;
     }
+
     .btn-icon {
         width: 18px;
         height: 18px;
@@ -271,43 +315,49 @@ body {
 }
 
 @media (max-width: 768px) {
-    .project-content {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        align-items: stretch;
-        justify-content: center;
-    }
-
     .video-section {
-        height: 300px;
+        height: 40vh;
     }
 
     .info-section {
-        padding: 30px;
+        padding: 25px;
     }
 
     .project-title {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
 
     .project-subtitle {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
+
     .project-description {
-        font-size: 1rem;
+        font-size: 0.95rem;
+        margin-bottom: 25px;
     }
+
     .project-features {
-        font-size: 1rem;
+        font-size: 0.95rem;
+        padding: 15px;
+        margin-bottom: 25px;
     }
+
+    .feature-list li {
+        margin-bottom: 12px;
+        font-size: 0.95rem;
+    }
+
     .project-buttons {
-        gap: 10px;
+        gap: 8px;
     }
+
     .project-btn {
         padding: 10px 20px;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
     }
+
     .btn-icon {
-        width: 18px;
-        height: 18px;
+        width: 16px;
+        height: 16px;
     }
 }

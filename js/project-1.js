@@ -1,13 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Initialize animations
     initAnimations();
-
-    // Set up button interactions
     setupButtons();
+    setupFeaturesHover();
 });
 
 function initAnimations() {
-    // Create a timeline for the animations
     const tl = gsap.timeline({
         defaults: {
             ease: "power3.out",
@@ -15,14 +12,12 @@ function initAnimations() {
         },
     });
 
-    // Animate the back button
     tl.to(".back", {
         opacity: 1,
         duration: 0.5,
         delay: 0.2,
     });
 
-    // Animate the project container
     tl.to(
         ".project-content",
         {
@@ -32,7 +27,6 @@ function initAnimations() {
         "-=0.3"
     );
 
-    // Animate the project title
     tl.to(
         ".project-title",
         {
@@ -43,7 +37,6 @@ function initAnimations() {
         "-=0.7"
     );
 
-    // Animate the project subtitle
     tl.to(
         ".project-subtitle",
         {
@@ -54,7 +47,6 @@ function initAnimations() {
         "-=0.5"
     );
 
-    // Animate the project description
     tl.to(
         ".project-description",
         {
@@ -65,18 +57,31 @@ function initAnimations() {
         "-=0.5"
     );
 
-    // Animate the project features
     tl.to(
         ".project-features",
         {
             opacity: 1,
             y: 0,
-            duration: 0.7,
+            duration: 0.9,
+            ease: "back.out(1.2)",
         },
-        "-=0.5"
+        "-=0.3"
     );
 
-    // Animate the project buttons
+    const features = document.querySelectorAll(".feature-list li");
+    features.forEach((feature, index) => {
+        tl.from(
+            feature,
+            {
+                opacity: 0,
+                x: -20,
+                duration: 0.4,
+                ease: "power2.out",
+            },
+            "-=0.2"
+        );
+    });
+
     tl.to(
         ".project-buttons",
         {
@@ -85,12 +90,11 @@ function initAnimations() {
             duration: 0.7,
             ease: "back.out(1.4)",
         },
-        "-=0.5"
+        "-=0.3"
     );
 }
 
 function setupButtons() {
-    // Add hover animations to buttons
     const buttons = document.querySelectorAll(".project-btn");
 
     buttons.forEach((button) => {
@@ -107,6 +111,40 @@ function setupButtons() {
                 scale: 1,
                 duration: 0.3,
             });
+        });
+    });
+}
+
+function setupFeaturesHover() {
+    const featuresSection = document.querySelector(".project-features");
+
+    featuresSection.addEventListener("mouseenter", () => {
+        gsap.to(featuresSection, {
+            borderWidth: "3px",
+            duration: 0.3,
+            ease: "power2.out",
+        });
+
+        gsap.to(".feature-list li", {
+            x: 5,
+            stagger: 0.05,
+            duration: 0.3,
+            ease: "power2.out",
+        });
+    });
+
+    featuresSection.addEventListener("mouseleave", () => {
+        gsap.to(featuresSection, {
+            borderWidth: "2px",
+            duration: 0.3,
+            ease: "power2.out",
+        });
+
+        gsap.to(".feature-list li", {
+            x: 0,
+            stagger: 0.05,
+            duration: 0.3,
+            ease: "power2.out",
         });
     });
 }

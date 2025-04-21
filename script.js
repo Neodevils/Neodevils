@@ -44,14 +44,11 @@ document.addEventListener("DOMContentLoaded", function () {
         initAnimations();
         initTestimonials();
 
-        // Handle window resize to ensure left_section visibility on mobile
         window.addEventListener("resize", handleResize);
     }, 100);
 
-    // Function to handle window resize
     function handleResize() {
         if (window.innerWidth <= 768) {
-            // On mobile, ensure left_section is visible
             gsap.set(".left_section", {
                 opacity: 1,
                 x: 0,
@@ -64,7 +61,6 @@ document.addEventListener("DOMContentLoaded", function () {
     function initAnimations() {
         const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-        // Only set initial animation state if not on mobile
         if (window.innerWidth > 768) {
             gsap.set(".left_section", {
                 opacity: 0,
@@ -73,7 +69,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 transformOrigin: "center left",
             });
         } else {
-            // On mobile, ensure left_section is visible
             gsap.set(".left_section", {
                 opacity: 1,
                 x: 0,
@@ -87,7 +82,6 @@ document.addEventListener("DOMContentLoaded", function () {
             duration: 0.8,
         });
 
-        // Only animate left_section if not on mobile
         if (window.innerWidth > 768) {
             tl.to(
                 ".left_section",
