@@ -241,6 +241,15 @@ function setupButtons() {
                 duration: 0.3,
             });
         });
+
+        button.addEventListener("click", () => {
+            if (button.classList.contains("primary-btn")) {
+                window.location.href =
+                    "https://discord.com/oauth2/authorize?client_id=736561919292473454";
+            } else if (button.classList.contains("secondary-btn")) {
+                window.location.href = "https://discord.gg/NdKBg9gFee";
+            }
+        });
     });
 
     if (timelineButton && popupContainer) {
