@@ -256,6 +256,20 @@ function setupButtons() {
         timelineButton.addEventListener("click", () => {
             popupContainer.classList.add("active");
 
+            // Collapse the video section when popup is active
+            const videoSection = document.querySelector(".video-section");
+            if (videoSection) {
+                // Store original flex value to restore later
+                videoSection.dataset.originalFlex =
+                    videoSection.style.flex || "1";
+                // Set flex to 0 to collapse it
+                gsap.to(videoSection, {
+                    flex: 0,
+                    duration: 0.4,
+                    ease: "power2.out",
+                });
+            }
+
             gsap.fromTo(
                 ".popup-content",
                 {
@@ -288,6 +302,18 @@ function setupButtons() {
     }
 
     if (popupClose && popupContainer) {
+        // Function to restore video section
+        const restoreVideoSection = () => {
+            const videoSection = document.querySelector(".video-section");
+            if (videoSection && videoSection.dataset.originalFlex) {
+                gsap.to(videoSection, {
+                    flex: videoSection.dataset.originalFlex,
+                    duration: 0.4,
+                    ease: "power2.out",
+                });
+            }
+        };
+
         popupClose.addEventListener("click", () => {
             gsap.to(".popup-content", {
                 y: 20,
@@ -296,6 +322,7 @@ function setupButtons() {
                 ease: "power2.in",
                 onComplete: () => {
                     popupContainer.classList.remove("active");
+                    restoreVideoSection();
                 },
             });
         });
@@ -309,6 +336,7 @@ function setupButtons() {
                     ease: "power2.in",
                     onComplete: () => {
                         popupContainer.classList.remove("active");
+                        restoreVideoSection();
                     },
                 });
             }
