@@ -1,5 +1,5 @@
 <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Neodevils/Neodevils/neo/readme-dark.png">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Neodevils/Neodevils/neo/readme-dark.png" />
     <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Neodevils/Neodevils/neo/readme-light.png" />
     <img alt="Neo; Surveyor Engineer · Developer · Designer" src="https://raw.githubusercontent.com/Neodevils/Neodevils/neo/readme-light.png" width="100%" />
 </picture>
