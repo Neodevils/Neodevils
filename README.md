@@ -1,7 +1,7 @@
 <!-- Image -->
 <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Neodevils/Neodevils/neo/readme-dark.png" />
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Neodevils/Neodevils/neo/readme-light.png" />
+    <source style="border-radius: 10px;" media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Neodevils/Neodevils/neo/readme-dark.png" />
+    <source style="border-radius: 10px;" media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Neodevils/Neodevils/neo/readme-light.png" />
     <img style="border-radius: 10px;" alt="Neo; Developer · Designer" src="https://raw.githubusercontent.com/Neodevils/Neodevils/neo/readme-light.png" width="100%" />
 </picture>
 
